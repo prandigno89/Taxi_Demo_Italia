@@ -5,9 +5,11 @@
 <link rel="stylesheet" href="css/pure-min.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/switch.css" />
+<link rel="stylesheet" href="css/meteo.css" />
 <script src="js/zepto_min.js"></script>
 <script src="js/tetra.js"></script>
 <script src="js/service.js"></script>
+<script src="js/meteo.js"></script>
 </head>
 <body>
 <div id="header" class="header center noselect"><h3 id="header1"></h3></div>
@@ -111,13 +113,18 @@
 				<!-- Pagina di esito della prenotazione -->
 				<div id="page6" class="altezza">
 					<a id="back3" href="#"><img src="./images/backEsito.png" class="back"></a>
+						<hr>
 						<div id="body">
-							<img src="images/logo.png"/>
+							<div class="meteo_body" id="esito"></div>
+							<hr>
+							<div>
+							<!--<img src="images/logo.png"/>-->
 							<p id="message"></p>							
 							<p id="sigla"></p>
 							<p id="attesa"></p>
 							<p id="idcorsa"></p>
                             <p id="endmessage"></p>
+							</div>
 						</div>
 					</div>
 				

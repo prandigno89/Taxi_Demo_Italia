@@ -170,7 +170,7 @@ function chiamaTaxi(pagina){
       $('#sigla').html("TAXI: "+cars[selezioneAuto].toUpperCase());
 	  $('#attesa').html("ATTESA: "+timecar[selezioneTempo]+" Minuti");
 	  $('#idcorsa').html("ID CORSA: "+ selezioneCorsa);
-      window.print();
+      //window.print();
        
 };
 
@@ -190,7 +190,7 @@ function chiamaTaxiOption(pagina, opzioni){
       $('#sigla').html("TAXI: "+cars[selezioneAuto].toUpperCase());
 	  $('#attesa').html("ATTESA: "+timecar[selezioneTempo]+" Minuti");
 	  $('#idcorsa').html("ID CORSA: "+ selezioneCorsa);
-      window.print();
+     // window.print();
        
         
 };
