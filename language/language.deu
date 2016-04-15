@@ -1,0 +1,78 @@
+[
+{
+"id": "#header1",
+"value": "Buchen Sie ein Taxi"
+},
+{
+"id": "#header2",
+"value": "Verf&uuml;gbare Dienste"
+},
+{
+"id": "#a1",
+"value": "Einfache Buchung"
+},
+{
+"id": "#a2",
+"value": "Taxi Optionen"    
+},
+{
+"id": "#a3",
+"value": "Buchung stornieren"    
+},
+{
+"id": "#a4",
+"value": "Einstellungen"    
+},
+{
+"id": "#prapida0",
+"value": "M&ouml;chten Sie ein Taxi ordern?"    
+},
+{
+"id": "#prapida1",
+"value": "Taxi Buchung"    
+},
+{
+"id": "#pcomplex0",
+"value": "Verf&uuml;gbare Dienste"    
+},
+{
+"id": "#pcomplex1",
+"value": "Kreditkarte"    
+},
+{
+"id": "#pcomplex2",
+"value": "Amex"    
+},
+{
+"id": "#pcomplex3",
+"value": "5 Pl&auml;tze"    
+},
+{
+"id": "#pcomplex4",
+"value": "6 Pl&auml;tze"    
+},
+{
+"id": "#pcomplex5",
+"value": "Englisch"    
+},
+{
+"id": "#pcomplex6",
+"value": "Gro&szligraumtaxi"     
+},
+{
+"id": "#prapida2",
+"value": "Taxi Buchung"    
+},
+{
+"id": "#snumber",
+"value": "Ordnungsnummer"    
+},
+{
+"id": "#an0",
+"value": "Soll die letzte Buchung storniert werden?"    
+},
+{
+"id": "#annullo",
+"value": "Stornierung"    
+}
+]

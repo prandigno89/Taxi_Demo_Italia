@@ -1,0 +1,78 @@
+[
+{
+"id": "#header1",
+"value": "Prenota una corsa Taxi"
+},
+{
+"id": "#header2",
+"value": "Servizi Disponibili"
+},
+{
+"id": "#a1",
+"value": "Prenotazione Rapida"
+},
+{
+"id": "#a2",
+"value": "Opzioni Taxi"    
+},
+{
+"id": "#a3",
+"value": "Annulla Corsa"    
+},
+{
+"id": "#a4",
+"value": "Impostazioni"    
+},
+{
+"id": "#prapida0",
+"value": "Vuoi prenotare una corsa Taxi?"    
+},
+{
+"id": "#prapida1",
+"value": "Chiama Taxi"    
+},
+{
+"id": "#pcomplex0",
+"value": "Servizi Disponibili"    
+},
+{
+"id": "#pcomplex1",
+"value": "Carta Credito"    
+},
+{
+"id": "#pcomplex2",
+"value": "Amex"    
+},
+{
+"id": "#pcomplex3",
+"value": "5 Posti"    
+},
+{
+"id": "#pcomplex4",
+"value": "6 Posti"    
+},
+{
+"id": "#pcomplex5",
+"value": "Inglese"    
+},
+{
+"id": "#pcomplex6",
+"value": "ST.Wagon"     
+},
+{
+"id": "#prapida2",
+"value": "Chiama Taxi"    
+},
+{
+"id": "#snumber",
+"value": "Serial Number"    
+},
+{
+"id": "#an0",
+"value": "Vuoi annullare l'ultima prenotazione?"    
+},
+{
+"id": "#annullo",
+"value": "Annulla"    
+}
+]
