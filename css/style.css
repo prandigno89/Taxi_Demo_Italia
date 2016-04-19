@@ -1,3 +1,10 @@
+@media print{
+    html{height:400px;}
+    body{height:400px;}
+    #header{display:none;}
+    a{display:none;}
+}
+
 img{
   display: block;
   margin-left: auto;
@@ -21,8 +28,8 @@ img{
 	display: block;
 }
 .altezza{
-	min-height:370px;
-	max-height:370px;
+	min-height:410px;
+	max-height:410px;
     position: relative;
 }
 .noselect {
@@ -68,3 +75,4 @@ table{
 tr, td {
     padding: 10px;
 }
+
