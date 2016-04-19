@@ -24,7 +24,8 @@ $(
 		/*SETTING LINGUA ALTERNATIVA*/
         var lang='language/language.it';
         setLanguage(lang);
-        
+        //chiamo il meteo
+        chiamaMeteo();
         
 		//Servizio Tetrajs per raccolta seriale del terminale:
 		var info = tetra.service({"service": 'local.desktopenv.settings', "namespace": 'ingenico.desktopenv'});
@@ -36,7 +37,8 @@ $(
 			$('#serial').html(serial_number);
 													});
 			
-							
+		
+        					
 		//inizializzo gli elementi come invisibili tranne la pagina 1:
 		$('#page2').hide();
 		$('#page3').hide();
@@ -63,9 +65,9 @@ $(
 					
 		
 		//ROUTER DI VISUALIZZAZIONE PAGINE:
-		a1.on('click', function(){ visualizza('#page1','#page2'); });
-		a2.on('click', function(){ visualizza('#page1','#page3'); });
-		a3.on('click', function(){ visualizza('#page1','#page8'); });
+		a1.on('click', function(){ visualizza('#page1','#page2'); chiamaMeteo();});
+		a2.on('click', function(){ visualizza('#page1','#page3'); chiamaMeteo();});
+		a3.on('click', function(){ visualizza('#page1','#page8'); chiamaMeteo();});
 		a4.on('click', function(){ visualizza('#page1','#page7'); });
 		
 		b1.on('click', function(){ visualizza('#page2','#page1'); });
@@ -78,8 +80,11 @@ $(
 		//funzione Prenotazione rapida di un taxi
 		p1.on('click', function(){ 
 		resetCampi();
+		
 		visualizza('#page2','#page4');
-		chiamaTaxi('#page4');	
+		chiamaTaxi('#page4');
+			
+		
 		});
 		//funzione prenotazione complessa di un taxi con opzioni
 		p2.on('click', function(){
@@ -156,9 +161,9 @@ function setLanguage(languageFile){
 
 // Funzione per la prenotazione di un taxi:	
 function chiamaTaxi(pagina){
-	  visualizza(pagina,'#page6');
+	visualizza(pagina,'#page6');
     
-     var cars= ["Aquaris","Ansion","Arkanis","Atzerri","Balnab","Bamayar","Bespin","Carlac","Carida","Dandoran","Denon","Endor","Felucia","Hoth","Mustafar","Naboo","Phindar","Tatooine"];
+    var cars= ["Aquaris","Ansion","Arkanis","Atzerri","Balnab","Bamayar","Bespin","Carlac","Carida","Dandoran","Denon","Endor","Felucia","Hoth","Mustafar","Naboo","Phindar","Tatooine"];
     var timecar=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
     var selezioneAuto = getRandomInt(0,cars.length-1);
     var selezioneTempo = getRandomInt(0,timecar.length-1);
@@ -170,8 +175,8 @@ function chiamaTaxi(pagina){
       $('#sigla').html("TAXI: "+cars[selezioneAuto].toUpperCase());
 	  $('#attesa').html("ATTESA: "+timecar[selezioneTempo]+" Minuti");
 	  $('#idcorsa').html("ID CORSA: "+ selezioneCorsa);
-      //window.print();
-       
+      
+      window.print(); 
 };
 
 // Funzione per la chiamata complessa di un taxi
@@ -190,7 +195,7 @@ function chiamaTaxiOption(pagina, opzioni){
       $('#sigla').html("TAXI: "+cars[selezioneAuto].toUpperCase());
 	  $('#attesa').html("ATTESA: "+timecar[selezioneTempo]+" Minuti");
 	  $('#idcorsa').html("ID CORSA: "+ selezioneCorsa);
-     // window.print();
+      window.print();
        
         
 };
@@ -217,5 +222,123 @@ function resetCampi(){
 	$('#attesa').html("");
 	$('#idcorsa').html("");
     $('#endmessage').html("");
+    
+    
+}
+
+function chiamaMeteo(){
+    var url = "https://ims.ingenico.it/IngenicoTaxi4040/TestMeteo";
+    $.getJSON(url, function(data){
+    //console.log(data)
+    var city = data.name;
+    var descrizione = data.weather[0].description;
+    var icona = data.weather[0].icon;
+    var temperatura = data.main.temp;
+    temperatura=Math.floor(temperatura);
+
+    console.log(city + ", "+ descrizione + ", " + icona + ", "+ temperatura);
+    var ico="src=\"./icone/default.png\"";
+    console.log(icona);
+   
+    if(icona!=null){
+        
+    var ico= selectIcon(icona); 
+    }
+       
+    var img = "<p><img class=\"meteo_icon\""+ ico +">";   
+    var descr="<p>"+city+"<br>"+descrizione+"<br>"+temperatura+" &deg;C</p>";
+               
+    $('#meteo').html(img+descr);
+    //stampo il risultato
+    
+    
+})
+
+
+    
+}//fine chiamaMeteo
+
+
+function selectIcon(ico){
+    
+    console.log("Passato:"+ico);
+    console.log(typeof(ico));
+    var daRitornare="src=\"./icone/default.png\"";
+    var test=ico.charAt(ico.length-1);
+    //icone del giorno
+    //if(test.endsWith('d')){
+    if(ico.charAt(ico.length-1)==='d'){
+    switch(ico){
+            case("01d"): 
+            daRitornare = "src=\"./icone/day/01d.png\"";
+            break;
+            case("02d"): 
+             daRitornare = "src=\"./icone/day/02d.png\"";
+            break;
+            case("03d"): 
+             daRitornare = "src=\"./icone/day/03d.png\"";
+            break;
+            case("04d"): 
+             daRitornare = "src=\"./icone/day/04d.png\"";
+            break;
+             case("09d"): 
+             daRitornare = "src=\"./icone/day/09d.png\"";
+            break;
+              case("10d"): 
+             daRitornare = "src=\"./icone/day/10d.png\"";
+            break;
+              case("11d"): 
+             daRitornare = "src=\"./icone/day/11d.png\"";
+            break;
+              case("13d"): 
+             daRitornare = "src=\"./icone/day/13d.png\"";
+            break;
+              case("50d"): 
+             daRitornare = "src=\"./icone/day/50d.png\"";
+                       
+        default: 
+        daRitornare = "src=\"./icone/default.png\"";
+    }
+    }
+    //icone della notte
+    else{
+        
+         switch(ico){
+        case("01n"): 
+            daRitornare = "src=\"./icone/night/01n.png\"";
+            break;
+          case("02n"): 
+             daRitornare = "src=\"./icone/night/02n.png\"";
+            break;
+            case("03n"): 
+             daRitornare = "src=\"./icone/night/03n.png\"";
+            break;
+            case("04n"): 
+             daRitornare = "src=\"./icone/night/04n.png\"";
+            break;
+             case("09n"): 
+             daRitornare = "src=\"./icone/night/09n.png\"";
+            break;
+              case("10n"): 
+             daRitornare = "src=\"./icone/night/10n.png\"";
+            break;
+              case("11n"): 
+             daRitornare = "src=\"./icone/night/11n.png\"";
+            break;
+              case("13n"): 
+             daRitornare = "src=\"./icone/night/13n.png\"";
+            break;
+              case("50n"): 
+             daRitornare = "src=\"./icone/night/50n.png\"";
+            break;
+                          
+        default: 
+        daRitornare = "src=\"./icone/default.png\"";
+    }
+        
+        
+    }
+    
+    return daRitornare;
     
 }
